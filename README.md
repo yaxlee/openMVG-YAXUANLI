@@ -30,7 +30,7 @@ $ sudo apt-get install libpng-dev libjpeg-dev libtiff-dev libxxf86vm1 libxxf86vm
 
 2. Checkout OpenMVG.
 ```shell
-$ git clone --recursive https://github.com/openMVG/openMVG.git
+$ git clone https://github.com/yaxlee/openMVG-YAXUANLI.git
 $ mkdir openMVG_Build && cd openMVG_Build
 ```
 
