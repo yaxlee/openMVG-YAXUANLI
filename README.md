@@ -1,4 +1,4 @@
-openMVG-YAXUANLI
+openMVG-YAXUAN
 =====================================
 
 Build instructions
