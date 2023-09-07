@@ -1,5 +1,10 @@
 openMVG-YAXUAN
 =====================================
+Detailed tutorials can be found on 
+
+https://openmvg.readthedocs.io/en/latest/software/SfM/SfM/#openmvg-sfm-pipelines
+
+https://github.com/openMVG/openMVG
 
 Build instructions
 ------------------
@@ -59,11 +64,6 @@ vim SfM_SequentialPipeline.py
 # declare camera model type at "openMVG_main_IncrementalSfM" by option "-c" at line 74, for example fisheye camera is 5
 pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfM"), "--sfm_engine", "INCREMENTAL", "--input_file", matches_dir+"/sfm_data.json", "--match_dir", matches_dir, "--output_dir", reconstruction_dir, "-c", "5"] )
 ```
-Detailed tutorials can be found on 
-
-https://openmvg.readthedocs.io/en/latest/software/SfM/SfM/#openmvg-sfm-pipelines
-
-https://github.com/openMVG/openMVG
 
 Troubleshoot
 -------------------
@@ -84,9 +84,3 @@ cd openMVG/src/openMVG/exif/sensor_width_database
 vim sensor_width_camera_database.txt
 # add camera model manually
 ```
-
-Detailed tutorials can be found on 
-
-https://openmvg.readthedocs.io/en/latest/software/SfM/SfM/#openmvg-sfm-pipelines
-
-https://github.com/openMVG/openMVG
