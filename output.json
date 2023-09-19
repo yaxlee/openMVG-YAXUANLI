@@ -1,0 +1,134 @@
+{
+    "folder_name": "result",
+    "type": "folder",
+    "contents": [
+        {
+            "folder_name": "matches",
+            "type": "folder",
+            "contents": [
+                {
+                    "file_name": "DSC_0001.desc",
+                    "type": "file"
+                },
+                {
+                    "file_name": "DSC_0001.feat",
+                    "type": "file"
+                },
+                {
+                    "file_name": "DSC_0002.desc",
+                    "type": "file"
+                },
+                {
+                    "file_name": "DSC_0002.feat",
+                    "type": "file"
+                },                
+                {
+                    "file_name": "DSC_0003.desc",
+                    "type": "file"
+                },
+                {
+                    "file_name": "DSC_0003.feat",
+                    "type": "file"
+                },
+                {
+                    "file_name": "putative_matches.svg",
+                    "type": "file"
+                },
+                {
+                    "file_name": "geometric_matches",
+                    "type": "file"
+                },
+                {
+                    "file_name": "matches.f.bin",
+                    "type": "file"
+                },               
+                {
+                    "file_name": "geometric_matches.svg",
+                    "type": "file"
+                },                
+                {
+                    "file_name": "GeometricAdjacencyMatrix.svg",
+                    "type": "file"
+                },
+                {
+                    "file_name": "sfm_data.json",
+                    "type": "file"
+                },
+                {
+                    "file_name": "matches.putative.bin",
+                    "type": "file"
+                },
+                {
+                    "file_name": "preemptive_pairs.txt",
+                    "type": "file"
+                },               
+                {
+                    "file_name": "pairs.bin",
+                    "type": "file"
+                },
+                {
+                    "file_name": "PutativeAdjacencyMatrix.svg",
+                    "type": "file"
+                },
+                {
+                    "file_name": "image_describer.json",
+                    "type": "file"
+                },
+                {
+                    "file_name": "putative_matches",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "folder_name": "reconstruction_sequential",
+            "type": "folder",
+            "contents": [
+                {
+                    "file_name": "00000000_Resection.ply",
+                    "type": "file"
+                },
+                {
+                    "file_name": "00000001_Resection.ply",
+                    "type": "file"
+                },
+                {
+                    "file_name": "00000002_Resection.ply",
+                    "type": "file"
+                },
+                {
+                    "file_name": "00000003_Resection.ply",
+                    "type": "file"
+                },
+                {
+                    "file_name": "residuals_histogram.svg",
+                    "type": "file"
+                },              
+                {
+                    "file_name": "colorized.ply",
+                    "type": "file"
+                },
+                {
+                    "file_name": "sfm_data.bin",
+                    "type": "file"
+                },                
+                {
+                    "file_name": "SfMReconstruction_Report.html",
+                    "type": "file"
+                },
+                {
+                    "file_name": "initialPair.ply",
+                    "type": "file"
+                },
+                {
+                    "file_name": "Reconstruction_Report.html",
+                    "type": "file"
+                },
+                {
+                    "file_name": "cloud_and_poses.ply",
+                    "type": "file"
+                } 
+            ]
+        }
+    ]
+}
