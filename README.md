@@ -109,11 +109,6 @@ The chain is designed to run on a sfm_data.json file. The sfm_data file should c
 cd /openMVG_Build/Linux-x86_64-RELEASE
 openMVG_main_ExportUndistortedImages -i Dataset/out_Reconstruction/sfm_data.json -o Dataset/out_Reconstruction/undistortedImageshell
 ```
-[-i|–input_file]
-a SfM_Data file with valid intrinsics and poses and optional structure
-[-o|–outdir]
-path where the undistorted images will be stored
-[-r|–exportOnlyReconstructed]
-Export only the images that have valid intrinsic and pose data (Can be 0(default) or 1)
-[-n|–numThreads]
-number of thread(s)
+ -i|–input_file: a SfM_Data file with valid intrinsics and poses and optional structure
+ -o|–outdir: path where the undistorted images will be stored
+ -r|–exportOnlyReconstructed: Export only the images that have valid intrinsic and pose data (Can be 0(default) or 1)
