@@ -102,6 +102,7 @@ $ python SfM_SequentialPipeline.py ~/home/user/data/ImageDataset/images ~/home/u
  - full path image directory: folder of images
  - resulting directory: result, see example_output.json file for format
 
+
 Export undistorted images from known camera parameter intrinsic:
 
 The chain is designed to run on a sfm_data.json file. The sfm_data file should contains: - valid view with some defined intrinsics.
