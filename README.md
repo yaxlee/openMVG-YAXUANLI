@@ -59,7 +59,7 @@ $ python SfM_SequentialPipeline.py ~/home/user/data/ImageDataset/images ~/home/u
 
 Need to declare camera model tpye for incremental reconstruction.
 ```shell
-cd cd openMVG_Build/software/SfM/
+cd openMVG_Build/software/SfM/
 vim SfM_SequentialPipeline.py
 # declare camera model type at "openMVG_main_IncrementalSfM" by option "-c" at line 74, for example fisheye camera is 5
 pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfM"), "--sfm_engine", "INCREMENTAL", "--input_file", matches_dir+"/sfm_data.json", "--match_dir", matches_dir, "--output_dir", reconstruction_dir, "-c", "5"] )
