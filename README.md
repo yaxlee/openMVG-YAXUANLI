@@ -57,8 +57,8 @@ $ python SfM_SequentialPipeline.py ~/home/user/data/ImageDataset/images ~/home/u
  - Input: folder of images
  - Output: reconstruction result
 
-By default OpenMVG is using the sensor size and the focal length stored in the EXIF metadata, it provide a OK value to start from that the SfM process will refine later. If you have image with no metadata you can:  
-1. specify the known pixel focal length value directly (from json file)
+By default OpenMVG is using the sensor size and the focal length stored in the EXIF metadata, it provide a OK value to start from that the SfM process will refine later. If you have image with no metadata, you can:  
+1. Specify the known pixel focal length value directly (from json file)
 2. Or, if all your images have the same size, you can specify an approximate focal length to SfM_InitImageListing by using the -f option. The value to use as an argument can be 1.2 * max(image_width, image_height), which will be refined during the SfM process.
 ```shell
 cd cd openMVG_Build/software/SfM/
@@ -82,23 +82,13 @@ vim SfM_SequentialPipeline.py
 pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfM"), "--sfm_engine", "INCREMENTAL", "--input_file", matches_dir+"/sfm_data.json", "--match_dir", matches_dir, "--output_dir", reconstruction_dir, "-c", "5"] )
 ```
 
-
-
 Troubleshoot
 -------------------
-
-
-For ERROR: [sequential_SfM.cpp:110] Unable to choose an initial pair, since there is no defined intrinsic data.
-```shell
-cd cd openMVG_Build/software/SfM/
-vim SfM_SequentialPipeline.py
-# add intrinsic parameters for "openMVG_main_SfMInit_ImageListing" by option "-k" at line 50
-pIntrisics = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfMInit_ImageListing"),  "-i", input_dir, "-o", matches_dir, "-d", camera_file_params, "-k", "fx;0;cx;0;fy;cy;0;0;1"] )
-```
 
 For WARNING: [main_SfMInit_ImageListing.cpp:458] Warning & Error messages: camera model doesn't exist in the database:
 ```shell
 cd openMVG/src/openMVG/exif/sensor_width_database
 vim sensor_width_camera_database.txt
 # add camera model manually
+[camera name] [sensor width]
 ```
