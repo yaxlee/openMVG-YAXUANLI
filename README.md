@@ -48,8 +48,8 @@ $ cmake --build . --target install
 Running Instrcution
 -------------------
 
-Before running the program, make sure it gets correct parameters. 
-
+Before running the program, make sure it gets correct parameters.   
+-->
 Make sure camera type is in database: openMVG/src/openMVG/exif/sensor_width_database.txt. If not, add it manually: 
 ```shell
 cd openMVG/src/openMVG/exif/sensor_width_database
