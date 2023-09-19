@@ -50,7 +50,7 @@ Running Instrcution
 
 Before running the program, make sure it gets correct parameters. 
 
-Make sure camera type is in database: openMVG/src/openMVG/exif/sensor_width_database. If not, add it manually: 
+Make sure camera type is in database: openMVG/src/openMVG/exif/sensor_width_database.txt. If not, add it manually: 
 ```shell
 cd openMVG/src/openMVG/exif/sensor_width_database
 vim sensor_width_camera_database.txt
