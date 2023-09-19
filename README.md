@@ -55,7 +55,7 @@ $ python SfM_SequentialPipeline.py ~/home/user/data/ImageDataset/images ~/home/u
 ```
 
  - Input: folder of images
- - Output: reconstruction pointcloud (colorized.ply)
+ - Output: reconstruction result
 
 Need to declare camera model tpye for incremental reconstruction.
 ```shell
