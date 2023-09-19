@@ -57,7 +57,11 @@ $ python SfM_SequentialPipeline.py ~/home/user/data/ImageDataset/images ~/home/u
  - Input: folder of images
  - Output: reconstruction result
 
-Need to declare camera model tpye for incremental reconstruction.
+By default OpenMVG is using the sensor size and the focal length stored in the EXIF metadata, it provide a OK value to start from that the SfM process will refine later. If you have image with no metadata you can specify the known pixel focal length value directly (from json file) or let the SfM process find it automatically. 
+If all your images have the same size, you can specify an approximate focal length to SfM_InitImageListing by using the -f option. The value to use as an argument can be 1.2 * max(image_width, image_height).
+
+
+Remember to declare camera model tpye for incremental reconstruction.
 ```shell
 cd openMVG_Build/software/SfM/
 vim SfM_SequentialPipeline.py
@@ -65,10 +69,12 @@ vim SfM_SequentialPipeline.py
 pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfM"), "--sfm_engine", "INCREMENTAL", "--input_file", matches_dir+"/sfm_data.json", "--match_dir", matches_dir, "--output_dir", reconstruction_dir, "-c", "5"] )
 ```
 
+
+
 Troubleshoot
 -------------------
 
-By default, openMVG requires input images to have exif information. If images don't have that, it may cause some errors and you need to add it manually.
+By default, openMVG asusmes that input images have exif metadata. If you have image with no metadata you can specify the known pixel focal length value directly or let the SfM process find it automatically.
 
 For ERROR: [sequential_SfM.cpp:110] Unable to choose an initial pair, since there is no defined intrinsic data.
 ```shell
