@@ -103,6 +103,7 @@ $ python SfM_SequentialPipeline.py ~/home/user/data/ImageDataset/images ~/home/u
  - resulting directory: result, see example_output.json file for format
 
 
+
 Export undistorted images from known camera parameter intrinsic:
 
 The chain is designed to run on a sfm_data.json file. The sfm_data file should contains: - valid view with some defined intrinsics.
@@ -111,5 +112,7 @@ cd /openMVG_Build/Linux-x86_64-RELEASE
 openMVG_main_ExportUndistortedImages -i Dataset/out_Reconstruction/sfm_data.json -o Dataset/out_Reconstruction/undistortedImageshell
 ```
  -i|–input_file: a SfM_Data file with valid intrinsics and poses and optional structure
+ 
  -o|–outdir: path where the undistorted images will be stored
+ 
  -r|–exportOnlyReconstructed: Export only the images that have valid intrinsic and pose data (Can be 0(default) or 1)
