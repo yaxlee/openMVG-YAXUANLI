@@ -48,9 +48,8 @@ $ cmake --build . --target install
 
 Before running the program, make sure it gets correct parameters.   
 
-### Make sure camera type is in database: openMVG/src/openMVG/exif/sensor_width_database.txt. 
+Make sure camera type is in database: openMVG/src/openMVG/exif/sensor_width_database.txt. If not, add it manually:
 
-If not, add it manually: 
 ```shell
 cd openMVG/src/openMVG/exif/sensor_width_database
 vim sensor_width_camera_database.txt
@@ -58,8 +57,7 @@ vim sensor_width_camera_database.txt
 [camera name] [sensor width]
 ```
 
-
-### By default OpenMVG is using the sensor size and the focal length stored in the EXIF metadata, it provide a OK value to start from that the SfM process will refine later. If you have image with no metadata, you can:  
+By default OpenMVG is using the sensor size and the focal length stored in the EXIF metadata, it provide a OK value to start from that the SfM process will refine later. If you have image with no metadata, you can:  
 
 1. Specify the known pixel focal length value directly (from json file)
 2. Or, if all your images have the same size, you can specify an approximate focal length to SfM_InitImageListing by using the -f option. The value to use as an argument can be 1.2 * max(image_width, image_height), which will be refined during the SfM process. (remeber f is pixel wise)
@@ -79,7 +77,7 @@ pIntrisics = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfMI
 4. If your iamges have different size and different intrinsic parameters, it's ok to perform either step above, because SfM will refine these parameters. But for now I recommend to preprocess images to a same size for best reconstruction result. (Currently we are working on enabling the program to directly read intrinsic parametes from JSON file associated with the view.)
 
 
-### Need to declare camera model tpye for incremental reconstruction.
+Make sure to declare camera model tpye for incremental reconstruction.
 
 1: Pinhole
 
@@ -98,8 +96,7 @@ vim SfM_SequentialPipeline.py
 pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfM"), "--sfm_engine", "INCREMENTAL", "--input_file", matches_dir+"/sfm_data.json", "--match_dir", matches_dir, "--output_dir", reconstruction_dir, "-c", "5"] )
 ```
 
-
-### Then run the program by calling runing python file.
+Then run the program by calling runing python file.
 
 ```shell
 cd openMVG_Build/software/SfM/
