@@ -51,8 +51,8 @@ Before running the program, make sure it gets correct parameters.
 Make sure camera type is in database: openMVG/src/openMVG/exif/sensor_width_database.txt. If not, add it manually:
 
 ```shell
-cd openMVG/src/openMVG/exif/sensor_width_database
-vim sensor_width_camera_database.txt
+$ cd openMVG/src/openMVG/exif/sensor_width_database
+$ vim sensor_width_camera_database.txt
 # add camera model manually
 [camera name] [sensor width]
 ```
@@ -62,15 +62,15 @@ By default OpenMVG is using the sensor size and the focal length stored in the E
 1. Specify the known pixel focal length value directly (from json file)
 2. Or, if all your images have the same size, you can specify an approximate focal length to SfM_InitImageListing by using the -f option. The value to use as an argument can be 1.2 * max(image_width, image_height), which will be refined during the SfM process. (remeber f is pixel wise)
 ```shell
-cd openMVG_Build/software/SfM/
-vim SfM_SequentialPipeline.py
+$ cd openMVG_Build/software/SfM/
+$ vim SfM_SequentialPipeline.py
 # add focal for "openMVG_main_SfMInit_ImageListing" by option "-k" at line 50
 pIntrisics = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfMInit_ImageListing"),  "-i", input_dir, "-o", matches_dir, "-d", camera_file_params, "-f", "your value"] )
 ```
 3. Or, if all your images have the same intrinsic data, you can let the SfM process find it automatically(at least two images that share common keypoints and with valid intrinsic group must be defined). You may need to specify an intrinsic data to SfM_InitImageListing by using the -k option.
 ```shell
-cd openMVG_Build/software/SfM/
-vim SfM_SequentialPipeline.py
+$ cd openMVG_Build/software/SfM/
+$ vim SfM_SequentialPipeline.py
 # add intrinsic parameters for "openMVG_main_SfMInit_ImageListing" by option "-k" at line 50
 pIntrisics = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfMInit_ImageListing"),  "-i", input_dir, "-o", matches_dir, "-d", camera_file_params, "-k", "fx;0;cx;0;fy;cy;0;0;1"] )
 ```
@@ -90,8 +90,8 @@ Make sure to declare camera model tpye for incremental reconstruction.
 5: Pinhole fisheye
 
 ```shell
-cd openMVG_Build/software/SfM/
-vim SfM_SequentialPipeline.py
+$ cd openMVG_Build/software/SfM/
+$ vim SfM_SequentialPipeline.py
 # declare camera model type at "openMVG_main_IncrementalSfM" by option "-c" at line 74, for example fisheye camera is 5
 pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfM"), "--sfm_engine", "INCREMENTAL", "--input_file", matches_dir+"/sfm_data.json", "--match_dir", matches_dir, "--output_dir", reconstruction_dir, "-c", "5"] )
 ```
@@ -99,7 +99,7 @@ pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfM"), 
 Then run the program by calling runing python file.
 
 ```shell
-cd openMVG_Build/software/SfM/
+$ cd openMVG_Build/software/SfM/
 $ python SfM_SequentialPipeline.py [full path image directory] [resulting directory]
 $ python SfM_SequentialPipeline.py ~/home/user/data/ImageDataset/images ~/home/user/data/ImageDataset/Incremental_Reconstruction
 ```
@@ -112,8 +112,8 @@ $ python SfM_SequentialPipeline.py ~/home/user/data/ImageDataset/images ~/home/u
 
 The chain is designed to run on a sfm_data.json file. The sfm_data file should contains: - valid view with some defined intrinsics.
 ```
-cd /openMVG_Build/Linux-x86_64-RELEASE
-openMVG_main_ExportUndistortedImages -i [input_file] -o [output_dir]
+$ cd /openMVG_Build/Linux-x86_64-RELEASE
+$ openMVG_main_ExportUndistortedImages -i [input_file] -o [output_dir]
 ```
  - input_file: a SfM_Data file with valid intrinsics and poses and optional structure (sfm_data.json) 
  - outdir: path where the undistorted images will be stored
