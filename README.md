@@ -75,8 +75,7 @@ vim SfM_SequentialPipeline.py
 # add intrinsic parameters for "openMVG_main_SfMInit_ImageListing" by option "-k" at line 50
 pIntrisics = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfMInit_ImageListing"),  "-i", input_dir, "-o", matches_dir, "-d", camera_file_params, "-k", "fx;0;cx;0;fy;cy;0;0;1"] )
 ```
-4. If your iamges have different size and different intrinsic parameters, for now I recommend to preprocess images to a same size. Or you can follow step 3 to add one intrinsic data, which will be refined in the SfM process.
-
+4. If your iamges have different size and different intrinsic parameters, it's ok to perform either step above, because SfM will refine these parameters. But for now I recommend to preprocess images to a same size for best result, and then perform step 2. (Currently we are working on enabling the program to directly read intrinsic parametes from JSON file associated with the view.)
 
 Need to declare camera model tpye for incremental reconstruction.
 1: Pinhole
