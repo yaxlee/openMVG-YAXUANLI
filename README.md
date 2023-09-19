@@ -57,9 +57,22 @@ $ python SfM_SequentialPipeline.py ~/home/user/data/ImageDataset/images ~/home/u
  - Input: folder of images
  - Output: reconstruction result
 
-By default OpenMVG is using the sensor size and the focal length stored in the EXIF metadata, it provide a OK value to start from that the SfM process will refine later. If you have image with no metadata you can specify the known pixel focal length value directly (from json file) or let the SfM process find it automatically. 
-If all your images have the same size, you can specify an approximate focal length to SfM_InitImageListing by using the -f option. The value to use as an argument can be 1.2 * max(image_width, image_height).
-
+By default OpenMVG is using the sensor size and the focal length stored in the EXIF metadata, it provide a OK value to start from that the SfM process will refine later. If you have image with no metadata you can:  
+1. specify the known pixel focal length value directly (from json file)
+2. Or, if all your images have the same size, you can specify an approximate focal length to SfM_InitImageListing by using the -f option. The value to use as an argument can be 1.2 * max(image_width, image_height), which will be refined during the SfM process.
+```shell
+cd cd openMVG_Build/software/SfM/
+vim SfM_SequentialPipeline.py
+# add focal for "openMVG_main_SfMInit_ImageListing" by option "-k" at line 50
+pIntrisics = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfMInit_ImageListing"),  "-i", input_dir, "-o", matches_dir, "-d", camera_file_params, "-f", "your value"] )
+```
+3. Or, if all your images are from the same camera with the same intrinsic data, you can let the SfM process find it automatically(at least two images that share common keypoints and with valid intrinsic group must be defined). You may need to specify an intrinsic data to SfM_InitImageListing by using the -k option.
+```shell
+cd cd openMVG_Build/software/SfM/
+vim SfM_SequentialPipeline.py
+# add intrinsic parameters for "openMVG_main_SfMInit_ImageListing" by option "-k" at line 50
+pIntrisics = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfMInit_ImageListing"),  "-i", input_dir, "-o", matches_dir, "-d", camera_file_params, "-k", "fx;0;cx;0;fy;cy;0;0;1"] )
+```
 
 Remember to declare camera model tpye for incremental reconstruction.
 ```shell
@@ -74,7 +87,6 @@ pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfM"), 
 Troubleshoot
 -------------------
 
-By default, openMVG asusmes that input images have exif metadata. If you have image with no metadata you can specify the known pixel focal length value directly or let the SfM process find it automatically.
 
 For ERROR: [sequential_SfM.cpp:110] Unable to choose an initial pair, since there is no defined intrinsic data.
 ```shell
