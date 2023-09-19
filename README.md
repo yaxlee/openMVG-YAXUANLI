@@ -1,13 +1,13 @@
-openMVG-SIT
-=====================================
+# openMVG-SIT
+
 Detailed tutorials can be found on 
 
 https://openmvg.readthedocs.io/en/latest/software/SfM/SfM/#openmvg-sfm-pipelines
 
 https://github.com/openMVG/openMVG
 
-Build instructions
-------------------
+## Build instructions
+
 Tested on Ubuntu 20.04 with python 3.8, GCC 9.4.0, cmake 3.27.2.
 
 Required tools:
@@ -25,8 +25,7 @@ line284: #find_package(Eigen3 QUIET)
 line300: #find_package(Ceres QUIET HINTS ${CERES_DIR_HINTS})
 ```
 
-Compiling on Linux
--------------------
+## Compiling on Linux
 
 1. Install the required external libraries.
 ```shell
@@ -45,12 +44,13 @@ $ cmake -DCMAKE_BUILD_TYPE=RELEASE ../openMVG/src/
 $ cmake --build . --target install
 ```
 
-Running Instrcution
--------------------
+## Running Instrcution
 
 Before running the program, make sure it gets correct parameters.   
--->
-Make sure camera type is in database: openMVG/src/openMVG/exif/sensor_width_database.txt. If not, add it manually: 
+
+### Make sure camera type is in database: openMVG/src/openMVG/exif/sensor_width_database.txt. 
+
+If not, add it manually: 
 ```shell
 cd openMVG/src/openMVG/exif/sensor_width_database
 vim sensor_width_camera_database.txt
@@ -59,8 +59,7 @@ vim sensor_width_camera_database.txt
 ```
 
 
-By default OpenMVG is using the sensor size and the focal length stored in the EXIF metadata, it provide a OK value to start from that the SfM process will refine later. If you have image with no metadata, you can:  
-
+### By default OpenMVG is using the sensor size and the focal length stored in the EXIF metadata, it provide a OK value to start from that the SfM process will refine later. If you have image with no metadata, you can:  
 
 1. Specify the known pixel focal length value directly (from json file)
 2. Or, if all your images have the same size, you can specify an approximate focal length to SfM_InitImageListing by using the -f option. The value to use as an argument can be 1.2 * max(image_width, image_height), which will be refined during the SfM process. (remeber f is pixel wise)
@@ -80,8 +79,7 @@ pIntrisics = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfMI
 4. If your iamges have different size and different intrinsic parameters, it's ok to perform either step above, because SfM will refine these parameters. But for now I recommend to preprocess images to a same size for best reconstruction result. (Currently we are working on enabling the program to directly read intrinsic parametes from JSON file associated with the view.)
 
 
-Need to declare camera model tpye for incremental reconstruction.
-
+### Need to declare camera model tpye for incremental reconstruction.
 
 1: Pinhole
 
@@ -101,7 +99,8 @@ pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, "openMVG_main_SfM"), 
 ```
 
 
-Then run the program by calling runing python file.
+### Then run the program by calling runing python file.
+
 ```shell
 cd openMVG_Build/software/SfM/
 $ python SfM_SequentialPipeline.py [full path image directory] [resulting directory]
@@ -112,8 +111,7 @@ $ python SfM_SequentialPipeline.py ~/home/user/data/ImageDataset/images ~/home/u
  - resulting directory: result, see example_output.json file for format
 
 
-Export undistorted images from known camera parameter intrinsic
--------------------
+## Export undistorted images from known camera parameter intrinsic
 
 The chain is designed to run on a sfm_data.json file. The sfm_data file should contains: - valid view with some defined intrinsics.
 ```
