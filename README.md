@@ -99,5 +99,5 @@ $ python SfM_SequentialPipeline.py [full path image directory] [resulting direct
 $ python SfM_SequentialPipeline.py ~/home/user/data/ImageDataset/images ~/home/user/data/ImageDataset/Incremental_Reconstruction
 ```
 
- - Input: folder of images
- - Output: see output.json file
+ - full path image directory: folder of images
+ - resulting directory: result, see example_output.json file for format
