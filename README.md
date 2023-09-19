@@ -8,7 +8,7 @@ https://github.com/openMVG/openMVG
 
 Build instructions
 ------------------
-Tested on Ubuntu 20.04 with Cuda 10.1, python 3.8, GCC 9.4.0, cmake 3.27.2.
+Tested on Ubuntu 20.04 with python 3.8, GCC 9.4.0, cmake 3.27.2.
 
 Required tools:
 
@@ -18,7 +18,7 @@ Required tools:
 - ceres-solver
 - eigen
 
-To avoid version conflict on ceres-solver and eigen, make sure to use internal packages by commenting out find_package function.
+Recommend using internal source of ceres and eigen packages by commenting out corresponding find_package functions in CMakeLists.txt.
 ```shell
 openMVG/src/CMakeLists.txt:
 line284: #find_package(Eigen3 QUIET)
